@@ -17,7 +17,7 @@ jobs:
       - name: Add Terraform to PATH
         shell: powershell
         run: |
-          echo "C:\Users\Vaishnavi\AppData\Local\Microsoft\WinGet\Links" >> $env:GITHUB_PATH
+          echo "C:\Terraform" >> $env:GITHUB_PATH
 
       - name: Verify Terraform
         run: terraform --version
