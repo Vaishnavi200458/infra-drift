@@ -1,3 +1,4 @@
+import sys
 import subprocess
 from datetime import datetime
 from pathlib import Path
@@ -57,11 +58,17 @@ elif plan.returncode == 2:
             log("Verification successful - infrastructure restored.")
         else:
             print("VERIFICATION: Infrastructure still has differences.")
+            log("Verification failed - infrastructure still has differences.")
+            sys.exit(1)
 
     else:
         print("STATUS: Automatic correction failed.")
         print(apply.stderr)
+        log("Automatic correction failed.")
+        sys.exit(1)
 
 else:
     print("STATUS: Error while checking infrastructure.")
     print(plan.stderr)
+    log("Error while checking infrastructure.")
+    sys.exit(1)
