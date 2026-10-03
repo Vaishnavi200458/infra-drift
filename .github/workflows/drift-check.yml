@@ -36,7 +36,9 @@ jobs:
         run: docker --version
 
       - name: Terraform Init
+        working-directory: C:\Users\Vaishnavi\Desktop\devops\infra-drift
         run: terraform init
 
       - name: Check Infrastructure
+        working-directory: C:\Users\Vaishnavi\Desktop\devops\infra-drift
         run: python scripts/auto_remediate.py
