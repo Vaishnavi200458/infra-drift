@@ -24,6 +24,11 @@ jobs:
         run: |
           echo "C:\DockerCLI" >> $env:GITHUB_PATH
 
+      - name: Add Python to PATH
+        shell: powershell
+        run: |
+          echo "C:\Python" >> $env:GITHUB_PATH
+
       - name: Verify Terraform
         run: terraform --version
 
