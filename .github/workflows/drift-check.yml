@@ -1,0 +1,24 @@
+name: Infrastructure Drift Check
+
+on:
+  workflow_dispatch:
+
+jobs:
+  drift-check:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify Terraform
+        run: terraform --version
+
+      - name: Verify Docker
+        run: docker --version
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Check Infrastructure
+        run: python scripts/auto_remediate.py
