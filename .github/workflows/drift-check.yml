@@ -19,6 +19,11 @@ jobs:
         run: |
           echo "C:\Terraform" >> $env:GITHUB_PATH
 
+      - name: Add Docker to PATH
+        shell: powershell
+        run: |
+          echo "C:\DockerCLI" >> $env:GITHUB_PATH
+
       - name: Verify Terraform
         run: terraform --version
 
